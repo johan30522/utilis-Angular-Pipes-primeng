@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+/* You can add global styles to this file, and also import other style files */
+
+.small-flag {
+    width: 50px;
+}
+
+.med-flag {
+    width: 200px;
+}
+
+.mr-1 {
+    margin-right: 5px;
+}
+
+html,
+body {
+    margin: 10px;
+    background-color: var(--surface-b);
+    font-family: var(--font-family);
+}
+
+.text-layout {
+    color: var( --text-color);
+}

@@ -1,0 +1,98 @@
+<div class="text-layout">
+
+    <h1>Pipes Personalizados</h1>
+    <p>prueba de piepes persoanlizados</p>
+
+</div>
+
+
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+
+
+    </div>
+
+    <div class="p-toolbar-group-right">
+        <p-button (click)="cambiarOrdenamiento('nombre')" icon="pi pi-sort" label="Por nombre" styleClass="mr-1 p-button-warning"></p-button>
+
+        <p-button (click)="cambiarOrdenamiento('vuela')" icon="pi pi-sort" label="Vuela" styleClass="mr-1 p-button-danger"></p-button>
+
+        <button (click)="cambiarMayuscula()" pButton type="button" label="Cambiar Mayuscula" class="p-button-raised p-button-rounded"></button>
+
+        <p-button (click)="cambiarOrdenamiento('color')" icon="pi pi-sort" label="Por Color" styleClass="mr-1 p-button-help"></p-button>
+
+    </div>
+</p-toolbar>
+
+
+<div class="grid">
+    <div class="col mt-2">
+        <p-table [value]="heroes|ordenar:opcionOrdenamiento" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th><strong>Nombre</strong></th>
+                    <th><strong>Vuela</strong></th>
+                    <th><strong>Color</strong></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.vuela|vuela|titlecase}}</td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<div class="grid">
+    <div class="col mt-2">
+        <p-table [value]="heroes|slice:0" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th pSortableColumn="nombre">Nombre
+                        <p-sortIcon field="nombre"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="vuela">vuela
+                        <p-sortIcon field="vuela"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="color">color
+                        <p-sortIcon field="color"></p-sortIcon>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-heroe>
+                <tr>
+                    <td>{{heroe.nombre}}</td>
+                    <td>{{heroe.vuela|vuela|titlecase}}</td>
+                    <td>{{heroe.color}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+
+
+
+
+<div class="grid">
+    <div class="col-6 md-6 sm-9">
+        <p-card header="Pipe" subheader="">
+
+
+            <p-fieldset legend="Personalizados" [toggleable]="true" [transitionOptions]="'2ms'">
+
+
+                <p> Este es un pipe personalizado para la siguiente palabra: {{'Prueba de Pipe'|mayusculas:esMayuscula}}
+                </p>
+            </p-fieldset>
+
+
+            <button (click)="cambiarMayuscula()" pButton type="button" label="Cambiar Mayuscula" class="p-button-raised p-button-rounded"></button>
+
+        </p-card>
+    </div>
+</div>

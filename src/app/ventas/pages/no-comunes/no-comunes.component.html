@@ -1,0 +1,85 @@
+<div class="text-layout">
+
+    <h1>Pipes no tan comunes</h1>
+    <p>pipes basicos de angular - incluidos en Common Module</p>
+
+
+    <div class="grid">
+        <div class="col-6 md-6 sm-9">
+            <p-card header="Pipe" subheader="">
+
+
+                <p-fieldset legend="i18n Select" [toggleable]="true" [transitionOptions]="'2ms'">
+
+
+                    <p>Saludos {{nombre}} es un placer {{genero|i18nSelect:valoresGenero}} a nuestro evento.</p>
+                    <hr>
+                    <button (click)="cambiarCliente()" pButton type="button" label="cambiar" class="p-button-raised p-button-rounded"></button>
+                </p-fieldset>
+
+
+
+            </p-card>
+        </div>
+        <div class="col-6 md-6 sm-9">
+            <p-card header="Pipe" subheader="">
+
+
+                <p-fieldset legend="i18n Plural" [toggleable]="true" [transitionOptions]="'2ms'">
+                    <p>{{clientes}}</p>
+                    <p> Actualmente tenemos {{clientes.length|i18nPlural:clientesMapa}}</p>
+                    <hr>
+                    <button (click)="borrarCliente()" pButton type="button" label="Eliminar ultimo" class="p-button-raised p-button-rounded"></button>
+                </p-fieldset>
+
+
+
+            </p-card>
+        </div>
+        <div class="col-6 md-6 sm-9">
+            <p-card header="Pipe" subheader="">
+
+
+                <p-fieldset legend="SlicePipe" [toggleable]="true" [transitionOptions]="'2ms'">
+                    <b>Original</b>
+                    <span *ngFor="let item of clientes">
+                        <li>{{item}}</li>
+                    </span>
+                    <hr>
+                    <b>slice:0:2</b>
+                    <pre>{{clientes|slice:0:2}}</pre>
+                    <hr>
+                    <b>slice:1:2</b>
+                    <pre>{{clientes|slice:1:2}}</pre>
+                    <hr>
+                    <b>slice:3:3</b>
+                    <pre>{{clientes|slice:1:2}}</pre>
+                </p-fieldset>
+
+
+
+            </p-card>
+        </div>
+        <div class="col-6 md-6 sm-9">
+            <p-card header="Pipe" subheader="">
+
+
+                <p-fieldset legend="keyValue" [toggleable]="true" [transitionOptions]="'2ms'">
+
+                    <p>{{persona|json}}</p>
+
+                    <li *ngFor="let item of persona|keyvalue">
+                        {{item.key + '-' + item.value}}
+                    </li>
+
+                </p-fieldset>
+
+
+
+            </p-card>
+        </div>
+
+
+    </div>
+
+</div>

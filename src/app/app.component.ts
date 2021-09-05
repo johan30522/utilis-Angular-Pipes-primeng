@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'PipesApp';
+  public nombre:string='esto es una prueba';
 }
